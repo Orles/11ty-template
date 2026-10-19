@@ -1,0 +1,77 @@
+{% import "image.njk" as image %}
+{% import "sprite.njk" as sprite %}
+
+{% macro swiper(name = 'default', hideNavigation = false) %}
+  <section class='base-carousel js-carousel' data-carousel-name='{{ name }}'>
+    <div class='swiper'>
+      <div class='swiper-wrapper'>{{ caller() }}</div>
+      <div class='swiper-pagination'></div>
+    </div>
+    {% if not hideNavigation %}
+      <button
+        class='swiper-button-prev base-carousel__button base-carousel__button_prev'
+        aria-label='Предыдущий слайд'
+      ></button>
+      <button
+        class='swiper-button-next base-carousel__button'
+        aria-label='Следующий слайд'
+      ></button>
+    {% endif %}
+  </section>
+{% endmacro %}
+
+{% macro imageSlide(name, image, url) %}
+  <div class='swiper-slide'>
+    <a href='{{ url }}'>
+      <figure>
+        <img src='{{ image }}' loading='lazy' alt='' />
+        <figcaption>{{ name }}</figcaption>
+      </figure>
+    </a>
+  </div>
+{% endmacro %}
+
+{% macro thumbSlide(image) %}
+  <div class='swiper-slide'>
+    <img src='{{ image }}' alt='' loading='lazy' />
+  </div>
+{% endmacro %}
+
+{% macro thumbsSwiper(mainSlides, gallerySlides) %}
+  <div class='js-thumbs-carousel'>
+    <div class='base-carousel js-thumbs-carousel__main'>
+      <div class='swiper'>
+        <div class='swiper-wrapper'>
+          {% for slide in mainSlides %}
+            {{ thumbSlide(slide.image) }}
+          {% endfor %}
+        </div>
+      </div>
+      <button
+        class='swiper-button-prev base-carousel__button'
+        aria-label='Предыдущий слайд'
+      ></button>
+      <button
+        class='swiper-button-next base-carousel__button'
+        aria-label='Следующий слайд'
+      ></button>
+    </div>
+    <div class='base-carousel js-thumbs-carousel__gallery'>
+      <div class='swiper'>
+        <div class='swiper-wrapper'>
+          {% for slide in gallerySlides %}
+            {{ thumbSlide(slide.image) }}
+          {% endfor %}
+        </div>
+      </div>
+      <button
+        class='swiper-button-prev base-carousel__button'
+        aria-label='Предыдущий слайд'
+      ></button>
+      <button
+        class='swiper-button-next base-carousel__button'
+        aria-label='Следующий слайд'
+      ></button>
+    </div>
+  </div>
+{% endmacro %}

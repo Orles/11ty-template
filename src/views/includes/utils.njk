@@ -1,0 +1,15 @@
+{% macro svg(type, name, width, height, class, attr) %}
+  {% set classContent = 'sprite-icon' %}
+
+  {% if class %}
+    {% set classContent = classContent ~ ' ' ~ class %}
+  {% endif %}
+
+  {% set attrContent = 'width="' ~ width ~ '" height="' ~ height ~ '"' %}
+
+  {% if attr %}
+    {% set attrContent = attrContent ~ ' ' ~ attr %}
+  {% endif %}
+
+  {% svgIcon type, name, 'class="' ~ classContent ~ '" ' ~ attrContent %}
+{% endmacro %}

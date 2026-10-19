@@ -1,0 +1,15 @@
+.page {
+  scroll-behavior: smooth;
+
+  &__body {
+    margin: 0;
+    padding: 0;
+    font-family: Onest, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--text-color);
+    background-color: var(--dark-primary-color);
+    background-image: url('../../images/img.png');
+  }
+}

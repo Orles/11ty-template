@@ -1,0 +1,51 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"eleventy --serve\" \"vite\"",
+    "build": "eleventy && vite build",
+    "lint:js": "eslint .",
+    "lint:scss": "stylelint \"src/**/*.scss\"",
+    "lint": "npm run lint:js && npm run lint:scss",
+    "lint:js:fix": "eslint . --fix",
+    "lint:scss:fix": "stylelint \"src/**/*.scss\" --fix",
+    "lint:fix": "npm run lint:js:fix && npm run lint:scss:fix",
+    "format": "prettier --write \"src/**/*.{ts,scss,njk,json}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,scss,njk,json}\"",
+    "fix": "npm run format && npm run lint:fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Orles/portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Orles/portfolio/issues"
+  },
+  "homepage": "https://github.com/Orles/portfolio#readme",
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.6",
+    "swiper": "^14.3.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "concurrently": "^10.0.5",
+    "eslint": "^10.11.0",
+    "globals": "^17.12.0",
+    "prettier": "^3.9.9",
+    "prettier-plugin-nunjucks": "^0.2.1",
+    "sass-embedded": "^1.105.0",
+    "stylelint": "^17.15.0",
+    "stylelint-config-standard-scss": "^17.0.0",
+    "stylelint-order": "^8.1.1",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.70.1",
+    "vite": "^8.3.1"
+  }
+}

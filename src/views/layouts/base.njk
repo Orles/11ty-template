@@ -1,0 +1,26 @@
+<!doctype html>
+<html class='page' lang='ru'>
+  <head>
+    <title>{{ title }}</title>
+    <meta http-equiv='Content-Type' content='text/html;charset=UTF-8' />
+    <meta
+      name='viewport'
+      content='width=device-width, initial-scale=1.0, minimum-scale=1.0'
+    />
+    <script
+      type='module'
+      src='http://localhost:5173/src/resources/ts/app.ts'
+    ></script>
+    <link
+      rel='stylesheet'
+      href='http://localhost:5173/src/resources/scss/app.scss'
+    />
+  </head>
+  <body class='page__body'>
+    <div>
+      {% include 'blocks/header.njk' %}
+      <main>{{ content | safe }}</main>
+      {% include 'blocks/footer.njk' %}
+    </div>
+  </body>
+</html>
